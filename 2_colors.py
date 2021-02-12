@@ -17,4 +17,4 @@ else:
     print(frame)
 
 cam.release()
-cv2.waitKey(5000)
+cv2.waitKey(8000)

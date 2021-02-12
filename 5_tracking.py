@@ -6,8 +6,8 @@ cam = cv2.VideoCapture(2)
 # THIS IS NEW ##################################################################
 
 OPENCV_OBJECT_TRACKERS = {
-    'csrt': cv2.TrackerCSRT_create,  # More accurate than KCF, but slightly slower
-    'kcf': cv2.TrackerKCF_create,  # Fast, doesn't do well with occlusion
+    # 'csrt': cv2.TrackerCSRT_create,  # More accurate than KCF, but slightly slower
+    # 'kcf': cv2.TrackerKCF_create,  # Fast, doesn't do well with occlusion
     # 'boosting': cv2.TrackerBoosting_create,  # Slow, outdated
     'mil': cv2.TrackerMIL_create,  # Better accuraccy than Boosting
     # 'tld': cv2.TrackerTLD_create,  # Prone to false-positives (do not use)
@@ -15,7 +15,7 @@ OPENCV_OBJECT_TRACKERS = {
     # 'mosse': cv2.TrackerMOSSE_create,  # *Extremely* fast, less accurate than KCF
 }
 
-tracker = OPENCV_OBJECT_TRACKERS['csrt']()
+tracker = OPENCV_OBJECT_TRACKERS['mil']()
 reference = None
 
 ################################################################################
@@ -49,7 +49,7 @@ while True:
 
     # declares to keep the window open for 10 milliseconds and listen
     # for key presses
-    key = cv2.waitKey(10)
+    key = cv2.waitKey(10) & 0xFF 
 
     # if the key is q, quit
     if key == ord('q'):

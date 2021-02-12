@@ -19,7 +19,7 @@ while True:
 
     # declares to keep the window open for 10 milliseconds and listen
     # for key presses
-    key = cv2.waitKey(10)
+    key = cv2.waitKey(10) & 0xFF
 
     # if the key is q, quit
     if key == ord('q'):
